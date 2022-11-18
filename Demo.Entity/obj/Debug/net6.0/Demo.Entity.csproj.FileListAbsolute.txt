@@ -1,0 +1,14 @@
+C:\Users\user\source\repos\src\Demo\Demo.Entity\bin\Debug\net6.0\Demo.Entity.deps.json
+C:\Users\user\source\repos\src\Demo\Demo.Entity\bin\Debug\net6.0\Demo.Entity.runtimeconfig.json
+C:\Users\user\source\repos\src\Demo\Demo.Entity\bin\Debug\net6.0\Demo.Entity.dll
+C:\Users\user\source\repos\src\Demo\Demo.Entity\bin\Debug\net6.0\Demo.Entity.pdb
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\Demo.Entity.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\Demo.Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\Demo.Entity.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\Demo.Entity.AssemblyInfo.cs
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\Demo.Entity.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\Demo.Entity.dll
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\refint\Demo.Entity.dll
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\Demo.Entity.pdb
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\Demo.Entity.genruntimeconfig.cache
+C:\Users\user\source\repos\src\Demo\Demo.Entity\obj\Debug\net6.0\ref\Demo.Entity.dll

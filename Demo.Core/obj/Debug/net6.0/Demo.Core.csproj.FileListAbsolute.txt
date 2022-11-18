@@ -1,0 +1,17 @@
+C:\Users\user\source\repos\src\Demo\Demo.Core\bin\Debug\net6.0\Demo.Core.deps.json
+C:\Users\user\source\repos\src\Demo\Demo.Core\bin\Debug\net6.0\Demo.Core.runtimeconfig.json
+C:\Users\user\source\repos\src\Demo\Demo.Core\bin\Debug\net6.0\Demo.Core.dll
+C:\Users\user\source\repos\src\Demo\Demo.Core\bin\Debug\net6.0\Demo.Core.pdb
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\Demo.Core.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\Demo.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\Demo.Core.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\Demo.Core.AssemblyInfo.cs
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\Demo.Core.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\Demo.Core.dll
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\refint\Demo.Core.dll
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\Demo.Core.pdb
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\Demo.Core.genruntimeconfig.cache
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\ref\Demo.Core.dll
+C:\Users\user\source\repos\src\Demo\Demo.Core\bin\Debug\net6.0\Demo.Entity.dll
+C:\Users\user\source\repos\src\Demo\Demo.Core\bin\Debug\net6.0\Demo.Entity.pdb
+C:\Users\user\source\repos\src\Demo\Demo.Core\obj\Debug\net6.0\Demo.Core.csproj.CopyComplete
