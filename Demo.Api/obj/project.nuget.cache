@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P48/E5hIl+Wc7fVAMZMgTKFrdl/sHDqF/SjxFcz9jeJCir11q3PLJba+jn/v2C8mpWLykeBdLukdjz2Zck0GEQ==",
+  "dgSpecHash": "567fba/LSx4sc4yR6uiSP8H+Mv9xcGB/5yIgfHpedyFm7oO+uT1G7/ArR/UFPnfcBOUPpb1D4gUdFX5m0WBtUw==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Api\\Demo.Api.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",

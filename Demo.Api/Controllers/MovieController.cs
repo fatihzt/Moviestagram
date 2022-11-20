@@ -17,11 +17,18 @@ namespace Demo.Api.Controllers
             var result = await client.GetMovieGenresAsync();
             return Ok(result);
         }
-        [HttpGet]
-        public async Task<IActionResult> GetAllMovie()
+        [HttpGet("ActionMovie")]
+        public async Task<IActionResult> GetActionMovie()
         {
             client.DefaultLanguage = "tr-TR";
-            var result = await client.GetGenreMoviesAsync(12);
+            var result = await client.GetGenreMoviesAsync(28);
+            return Ok(result);
+        }
+        [HttpGet("Movie/AnimationMovie")]
+        public async Task<IActionResult> GetAnimationMovie()
+        {
+            client.DefaultLanguage = "tr-TR";
+            var result = await client.GetGenreMoviesAsync(16);
             return Ok(result);
         }
     }
