@@ -37,3 +37,5 @@ C:\Users\user\source\repos\src\Demo\bin\Debug\Microsoft.Extensions.Identity.Core
 C:\Users\user\source\repos\src\Demo\bin\Debug\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\user\source\repos\src\Demo\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\user\source\repos\src\Demo\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\user\source\repos\src\Demo\bin\Debug\Demo.Entity.dll
+C:\Users\user\source\repos\src\Demo\bin\Debug\Demo.Entity.pdb

@@ -25,6 +25,38 @@ namespace Demo.Api.Controllers
             var result = await client.GetGenreMoviesAsync(genreid,pageno);
             return Ok(result);
         }
-        
+        [HttpGet("Movie/GetPopular{pageno}")]
+        public async Task<IActionResult> GetPopularMovie(int pageno)
+        {
+            client.DefaultLanguage = "tr-TR";
+            var rsult=await client.GetMoviePopularListAsync(null,pageno);
+            return Ok(rsult);
+        }
+        [HttpGet("Movie/Latest")]
+        public async Task<IActionResult> GetLatestMovie()
+        {
+            client.DefaultLanguage = "tr-TR";
+            var result = await client.GetMovieLatestAsync();
+            return Ok(result);
+        }
+        [HttpGet("Movie/Upcoming{pageno}")]
+        public async Task<IActionResult> GetUpcomingMovies(int pageno)
+        {
+            client.DefaultLanguage = "tr-TR";
+            var result = await client.GetMovieUpcomingListAsync(null, pageno);
+            return Ok(result);
+        }
+        [HttpPost("{pageno}")]
+        public async Task<IActionResult> FindMovie([FromBody] string query,int pageno)
+        {
+            var result=await client.SearchMovieAsync(query,pageno);
+            return Ok(result);
+        }
+        [HttpGet("MovieCastById{movieid}")]
+        public async Task<IActionResult> GetCastByMovieId(int movieid)
+        {
+            var result = await client.GetMovieCreditsAsync(movieid);
+            return Ok(result);
+        }
     }
 }

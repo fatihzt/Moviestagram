@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Demo.Core.Configuration
+namespace Demo.Business.Request
 {
-    public class JwtConfig
+    public class UserRegistrationRequest
     {
-        public string Secret { get; set; }
     }
 }
