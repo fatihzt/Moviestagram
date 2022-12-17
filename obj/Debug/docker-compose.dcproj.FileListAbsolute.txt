@@ -39,3 +39,5 @@ C:\Users\user\source\repos\src\Demo\bin\Debug\Microsoft.AspNetCore.Cryptography.
 C:\Users\user\source\repos\src\Demo\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\user\source\repos\src\Demo\bin\Debug\Demo.Entity.dll
 C:\Users\user\source\repos\src\Demo\bin\Debug\Demo.Entity.pdb
+C:\Users\user\source\repos\src\Demo\bin\Debug\Demo.Business.dll
+C:\Users\user\source\repos\src\Demo\bin\Debug\Demo.Business.pdb

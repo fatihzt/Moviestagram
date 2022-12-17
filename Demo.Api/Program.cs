@@ -1,5 +1,10 @@
+using Demo.Business.Abstract;
+using Demo.Business.Concrete;
 using Demo.Core;
+using Demo.Core.Abstract;
+using Demo.Core.Concrete;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -13,6 +18,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IUserService, UserManager>();
+builder.Services.AddScoped < IUser,EfUser>();
 
 var app = builder.Build();
 

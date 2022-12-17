@@ -12,3 +12,8 @@ C:\Users\user\source\repos\src\Demo\Demo.Business\obj\Debug\net6.0\refint\Demo.B
 C:\Users\user\source\repos\src\Demo\Demo.Business\obj\Debug\net6.0\Demo.Business.pdb
 C:\Users\user\source\repos\src\Demo\Demo.Business\obj\Debug\net6.0\Demo.Business.genruntimeconfig.cache
 C:\Users\user\source\repos\src\Demo\Demo.Business\obj\Debug\net6.0\ref\Demo.Business.dll
+C:\Users\user\source\repos\src\Demo\Demo.Business\bin\Debug\net6.0\Demo.Core.dll
+C:\Users\user\source\repos\src\Demo\Demo.Business\bin\Debug\net6.0\Demo.Entity.dll
+C:\Users\user\source\repos\src\Demo\Demo.Business\bin\Debug\net6.0\Demo.Core.pdb
+C:\Users\user\source\repos\src\Demo\Demo.Business\bin\Debug\net6.0\Demo.Entity.pdb
+C:\Users\user\source\repos\src\Demo\Demo.Business\obj\Debug\net6.0\Demo.Business.csproj.CopyComplete

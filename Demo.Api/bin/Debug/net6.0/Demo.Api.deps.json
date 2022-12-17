@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Demo.Api/1.0.0": {
         "dependencies": {
+          "Demo.Business": "1.0.0",
           "Demo.Core": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
           "Microsoft.AspNetCore.Identity.UI": "6.0.11",
@@ -1113,6 +1114,17 @@
           }
         }
       },
+      "Demo.Business/1.0.0": {
+        "dependencies": {
+          "Demo.Core": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.11",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
+        },
+        "runtime": {
+          "Demo.Business.dll": {}
+        }
+      },
       "Demo.Core/1.0.0": {
         "dependencies": {
           "Demo.Entity": "1.0.0",
@@ -1906,6 +1918,11 @@
       "sha512": "sha512-WpOgYzM/I54eVNG94Zc9GpMcK3VSaFC9AEf45pbPj8KoxbA+7z5OUY96I9qXduPPr0ifqLYq9FIge5xSb0jCvQ==",
       "path": "tmdblib/1.9.2",
       "hashPath": "tmdblib.1.9.2.nupkg.sha512"
+    },
+    "Demo.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Demo.Core/1.0.0": {
       "type": "project",

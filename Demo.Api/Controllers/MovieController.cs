@@ -19,7 +19,7 @@ namespace Demo.Api.Controllers
             return Ok(result);
         }
         [HttpGet("{genreid}/{pageno}")]
-        public async Task<IActionResult> GetActionMovie(int genreid,int pageno)
+        public async Task<IActionResult> GetMovie(int genreid,int pageno)
         {
             client.DefaultLanguage = "tr-TR";
             var result = await client.GetGenreMoviesAsync(genreid,pageno);

@@ -1875,6 +1875,22 @@
           }
         }
       },
+      "Demo.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Demo.Core": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.11",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Demo.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Demo.Business.dll": {}
+        }
+      },
       "Demo.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -6194,6 +6210,11 @@
         "tmdblib.nuspec"
       ]
     },
+    "Demo.Business/1.0.0": {
+      "type": "project",
+      "path": "../Demo.Business/Demo.Business.csproj",
+      "msbuildProject": "../Demo.Business/Demo.Business.csproj"
+    },
     "Demo.Core/1.0.0": {
       "type": "project",
       "path": "../Demo.Core/Demo.Core.csproj",
@@ -6207,6 +6228,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Demo.Business >= 1.0.0",
       "Demo.Core >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.11",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.11",
@@ -6243,6 +6265,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Business\\Demo.Business.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Business\\Demo.Business.csproj"
+            },
             "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Core\\Demo.Core.csproj": {
               "projectPath": "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Core\\Demo.Core.csproj"
             }
