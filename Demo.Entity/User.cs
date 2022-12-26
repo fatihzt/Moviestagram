@@ -17,7 +17,8 @@ namespace Demo.Entity
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public string EMail { get; set; }
-        
+        public string TelNo { get; set; }
+
 
     }
 }

@@ -20,13 +20,39 @@ namespace Demo.Api.Controllers
             var result=await client.GetTvGenresAsync();
             return Ok(result);  
         }
-        //[HttpGet]
-        //public IActionResult GetTVSeries(int genreid)
-        //{
-        //    var result = client.DiscoverTvShowsAsync(DiscoverTv);
-            
-        //    return Ok(result);
-        //}
+        [HttpGet("{genreid}/{pageno}")]
+        public async Task<IActionResult> GetTVSeries(int genreid,int pageno)
+        {
+            var result = client.DiscoverTvShowsAsync().WhereGenresInclude(new List<int>() { genreid });
+            SearchContainer<SearchTv> container = await result.Query("tr-TR", pageno);
+
+            return Ok(container.Results);
+        }
+        [HttpGet("Popular{pageno}")]
+        public async Task<IActionResult> GetPopularTv(int pageno)
+        {
+            var result = await client.GetTvShowPopularAsync(pageno);
+            return Ok(result);
+        }
+        [HttpGet("Tv/Latest")]
+        public async Task<IActionResult> GetLatestTv()
+        {
+            var result=await client.GetLatestTvShowAsync();
+            return Ok(result);
+        }
+        [HttpPost("{pageno}")]
+        public async Task<IActionResult> FindTvShow([FromBody] string query, int pageno)
+        {
+            var result=await client.SearchTvShowAsync(query, pageno);
+            return Ok(result);
+        }
+        [HttpGet("CastByTvId{tvid}")]
+        public async Task<IActionResult>UpcomingTv(int tvid)
+        {
+            var result=await client.GetTvShowCreditsAsync(tvid);
+            return Ok(result);
+        }
+        
 
     }
 }
