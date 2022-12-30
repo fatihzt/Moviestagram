@@ -17,7 +17,7 @@ namespace Demo.Api.Controllers
         }
         [HttpPost("Movie List Create")]
         public IActionResult CreateMovieList(MovieListCreateRequest dto)
-        {
+        {//liste şeklinde id alırken sorun çıkıyor.
             MovieFavoriteList entity = new()
             {
                 Name = dto.Name,
