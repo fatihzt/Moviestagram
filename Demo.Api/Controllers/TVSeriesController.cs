@@ -46,10 +46,16 @@ namespace Demo.Api.Controllers
             var result=await client.SearchTvShowAsync(query, pageno);
             return Ok(result);
         }
-        [HttpGet("CastByTvId{tvid}")]
-        public async Task<IActionResult>UpcomingTv(int tvid)
+        [HttpGet("CastByTvId{tvId}")]
+        public async Task<IActionResult>UpcomingTv(int tvId)
         {
-            var result=await client.GetTvShowCreditsAsync(tvid);
+            var result=await client.GetTvShowCreditsAsync(tvId);
+            return Ok(result);
+        }
+        [HttpGet("TvById{tvId}")]
+        public async Task<IActionResult>GetTvById(int tvId)
+        {
+            var result = await client.GetTvShowAsync(tvId);
             return Ok(result);
         }
         

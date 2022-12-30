@@ -58,5 +58,11 @@ namespace Demo.Api.Controllers
             var result = await client.GetMovieCreditsAsync(movieid);
             return Ok(result);
         }
+        [HttpGet("GetMovieById{movieId}")]
+        public async Task<IActionResult> GetMovieById(int movieId) 
+        {
+            var result=await client.GetMovieAsync(movieId);
+            return Ok(result);  
+        }
     }
 }
