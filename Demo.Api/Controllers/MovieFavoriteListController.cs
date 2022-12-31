@@ -3,6 +3,7 @@ using Demo.Business.Request.FavoriteList.MovieList;
 using Demo.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Demo.Api.Controllers
 {
@@ -15,7 +16,7 @@ namespace Demo.Api.Controllers
         {
             _movieFavoriteListService = movieFavoriteListService;
         }
-        [HttpPost("Movie List Create")]
+        [HttpPost("CreationMovieList")]
         public IActionResult CreateMovieList(MovieListCreateRequest dto)
         {//liste şeklinde id alırken sorun çıkıyor.
             MovieFavoriteList entity = new()
@@ -29,5 +30,12 @@ namespace Demo.Api.Controllers
             _movieFavoriteListService.Add(entity);
             return Ok(entity);  
         }
+        [HttpGet("GetListByUserId{userId}")]
+        public IActionResult GetListById(int userId)
+        {
+            var result=_movieFavoriteListService.GetAll(l=>l.UserId == userId,path=>path.Include(l=>l.User));
+            return Ok(result);
+        }
+
     }
 }

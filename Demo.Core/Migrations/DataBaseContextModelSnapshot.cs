@@ -33,7 +33,7 @@ namespace Demo.Core.Migrations
                     b.Property<DateTime?>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MovieId")
+                    b.Property<int>("MovieIds")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -65,7 +65,7 @@ namespace Demo.Core.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TvId")
+                    b.Property<int>("TvIds")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")

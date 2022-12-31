@@ -11,6 +11,6 @@ namespace Demo.Business.Request.FavoriteList.TvSeriesList
         public string Name { get; set; }
         public int UserId { get; set; }
         public DateTime? DateTime { get; set; }
-        public List<int> TvIds { get; set; }
+        public int TvIds { get; set; }
     }
 }
