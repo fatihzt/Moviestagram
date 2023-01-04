@@ -8,6 +8,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
@@ -72,7 +73,12 @@ namespace Demo.Api.Controllers
             var result = _userService.GetAll();
             foreach(var user in result)
             {
-                if(user.EMail==dto.EMail&&user.Password==dto.Password)
+                var tokenstring = user.Password;
+                var jwtEncodedString = tokenstring;
+                var token = new JwtSecurityToken(jwtEncodedString: jwtEncodedString);
+                var decrpted = token.Claims.First(c => c.Type == "Password").Value;
+
+                if (user.EMail==dto.EMail&&decrpted==dto.Password)
                 {
                     return Ok("Login Successfully");
                 }
