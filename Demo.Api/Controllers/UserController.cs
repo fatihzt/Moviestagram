@@ -31,30 +31,12 @@ namespace Demo.Api.Controllers
         {
             if (dto != null && dto.Name != null && dto.Password != null)
             {
-                var jwt = _configuration.GetSection("Jwt").Get<Jwt>();
-                if(dto != null)
+                if (dto != null)
                 {
-                    var claims = new[]
-                    {
-                        new Claim(JwtRegisteredClaimNames.Sub,jwt.Subject),
-                        new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-                        new Claim(JwtRegisteredClaimNames.Iat,DateTime.UtcNow.ToString()),
-                        new Claim("Name",dto.Name),
-                        new Claim("Surname",dto.Surname),
-                        new Claim("Password",dto.Password)
-                    };
-                    var key=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.key));
-                    var signIn=new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
-                    var token = new JwtSecurityToken(
-                        jwt.Issuer,
-                        jwt.Audience,
-                        claims,
-                        expires: DateTime.Now.AddMinutes(20),
-                        signingCredentials: signIn);
-                    var encrypted=new JwtSecurityTokenHandler().WriteToken(token);
-                    User entity = new() { Name = dto.Name, Surname = dto.Surname, Password =encrypted , EMail = dto.EMail, TelNo = dto.TelNo };
+                    var encryptedPassword=_userService.Register(dto);
+                    User entity = new() { Name = dto.Name, Surname = dto.Surname, Password = encryptedPassword, EMail = dto.EMail, TelNo = dto.TelNo };
                     _userService.Add(entity);
-                    return Ok(encrypted);
+                    return Ok(entity);
                 }
                 else
                 {
@@ -65,6 +47,45 @@ namespace Demo.Api.Controllers
             {
                 return BadRequest();
             }
+            //[HttpPost("Register")]
+            //public IActionResult Register(UserRegistirationRequest dto)
+            //{
+            //    if (dto != null && dto.Name != null && dto.Password != null)
+            //    {
+            //        var jwt = _configuration.GetSection("Jwt").Get<Jwt>();
+            //        if (dto != null)
+            //        {
+            //            var claims = new[]
+            //            {
+            //                new Claim(JwtRegisteredClaimNames.Sub,jwt.Subject),
+            //                new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
+            //                new Claim(JwtRegisteredClaimNames.Iat,DateTime.UtcNow.ToString()),
+            //                new Claim("Name",dto.Name),
+            //                new Claim("Surname",dto.Surname),
+            //                new Claim("Password",dto.Password)
+            //            };
+            //            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.key));
+            //            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            //            var token = new JwtSecurityToken(
+            //                jwt.Issuer,
+            //                jwt.Audience,
+            //                claims,
+            //                expires: DateTime.Now.AddMinutes(20),
+            //                signingCredentials: signIn);
+            //            var encrypted = new JwtSecurityTokenHandler().WriteToken(token);
+            //            User entity = new() { Name = dto.Name, Surname = dto.Surname, Password = encrypted, EMail = dto.EMail, TelNo = dto.TelNo };
+            //            _userService.Add(entity);
+            //            return Ok(encrypted);
+            //        }
+            //        else
+            //        {
+            //            return BadRequest();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        return BadRequest();
+            //    }
         }
         [HttpPost("Login")]
         public IActionResult Login(UserLoginRequest dto)

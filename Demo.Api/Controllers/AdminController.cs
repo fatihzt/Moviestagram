@@ -24,5 +24,11 @@ namespace Demo.Api.Controllers
             var result = _userService.GetAll();
             return Ok(result);
         }
+        [HttpDelete("DeleteUserById{id}")]
+        public IActionResult DeleteUser(int id)
+        {
+            bool result = _userService.Delete(new() { Id= id });
+            return Ok(result);
+        }
     }
 }

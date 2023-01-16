@@ -5494,19 +5494,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\muham\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Api\\Demo.Api.csproj",
+      "projectUniqueName": "C:\\Users\\muham\\source\\Repos\\Version1\\Demo.Api\\Demo.Api.csproj",
       "projectName": "Demo.Api",
-      "projectPath": "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Api\\Demo.Api.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Api\\obj\\",
+      "projectPath": "C:\\Users\\muham\\source\\Repos\\Version1\\Demo.Api\\Demo.Api.csproj",
+      "packagesPath": "C:\\Users\\muham\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\muham\\source\\Repos\\Version1\\Demo.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\muham\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5520,11 +5520,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Business\\Demo.Business.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Business\\Demo.Business.csproj"
+            "C:\\Users\\muham\\source\\Repos\\Version1\\Demo.Business\\Demo.Business.csproj": {
+              "projectPath": "C:\\Users\\muham\\source\\Repos\\Version1\\Demo.Business\\Demo.Business.csproj"
             },
-            "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Core\\Demo.Core.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\src\\Demo\\Demo.Core\\Demo.Core.csproj"
+            "C:\\Users\\muham\\source\\Repos\\Version1\\Demo.Core\\Demo.Core.csproj": {
+              "projectPath": "C:\\Users\\muham\\source\\Repos\\Version1\\Demo.Core\\Demo.Core.csproj"
             }
           }
         }
@@ -5585,7 +5585,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
