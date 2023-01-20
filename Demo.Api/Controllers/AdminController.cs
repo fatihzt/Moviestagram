@@ -13,10 +13,12 @@ namespace Demo.Api.Controllers
     {
         private readonly IUserService _userService;
         private readonly IMovieFavoriteListService _movieFavoriteListService;
-        public AdminController(IUserService userService, IMovieFavoriteListService movieFavoriteListService)
+        private readonly ICommentedFavoriteListService _commentedFavoriteListService;
+        public AdminController(IUserService userService, IMovieFavoriteListService movieFavoriteListService,ICommentedFavoriteListService commentedFavoriteListService)
         {
             _userService = userService;
             _movieFavoriteListService = movieFavoriteListService;
+            _commentedFavoriteListService= commentedFavoriteListService;
         }
         [HttpGet("GetAllUser")]
         public IActionResult GetAllUser()
@@ -28,6 +30,12 @@ namespace Demo.Api.Controllers
         public IActionResult DeleteUser(int id)
         {
             bool result = _userService.Delete(new() { Id= id });
+            return Ok(result);
+        }
+        [HttpGet("GetAllComment")]
+        public IActionResult GetAllComment()
+        {
+            var result = _commentedFavoriteListService.GetAll();
             return Ok(result);
         }
     }

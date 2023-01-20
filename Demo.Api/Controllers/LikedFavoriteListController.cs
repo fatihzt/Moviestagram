@@ -26,7 +26,8 @@ namespace Demo.Api.Controllers
         public IActionResult Get(int favoriteListId)
         {
             var result=_likedFavoriteListService.GetAll(c=>c.FavoriteListId==favoriteListId);
-            return Ok(result);
+            return Ok(result.Count);
         }
+
     }
 }
