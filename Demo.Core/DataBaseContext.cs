@@ -20,6 +20,9 @@ namespace Demo.Core
         public DbSet<User> User { get; set; }
         public DbSet<MovieFavoriteList> MovieFavoriteList { get; set; }
         public DbSet<TvSeriesFavoriteList> TvSeriesFavoriteList { get; set; }
+        public DbSet<LikedFavoriteList> LikedFavoriteList { get; set; }
+        public DbSet<CommentedFavoriteList> CommentedFavoriteList { get; set; }
+
 
     }
 }

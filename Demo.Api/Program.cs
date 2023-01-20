@@ -65,6 +65,11 @@ builder.Services.AddScoped<IMovieFavoriteListService,MovieFavoriteListManager>()
 builder.Services.AddScoped<IMovieFavoriteList,EfMovieFavoriteList>();
 builder.Services.AddScoped<ITvSeriesFavoriteListService,TvSeriesFavoriteListManager>();
 builder.Services.AddScoped<ITvSeriesFavoriteList,EfTvSeriesFavoriteList>();
+builder.Services.AddScoped<ILikedFavoriteListService,LikedFavoriteListManager>();
+builder.Services.AddScoped<ILikedFavoriteList,EfLikedFavoriteList>();
+builder.Services.AddScoped<ICommentedFavoriteListService, CommentedFavoriteListManager>();
+builder.Services.AddScoped<ICommentedFavoriteList,EfCommentedFavoriteList>();
+
 
 var app = builder.Build();
 
