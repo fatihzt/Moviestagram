@@ -36,6 +36,18 @@ namespace Demo.Api.Controllers
             var result=_movieFavoriteListService.GetAll(l=>l.UserId == userId,path=>path.Include(l=>l.User));
             return Ok(result);
         }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            bool result = _movieFavoriteListService.Delete(new() { Id= id });
+            return Ok(result);
+        }
+        [HttpGet("GetAllMovieList")]
+        public IActionResult GetAll()
+        {
+            var result=_movieFavoriteListService.GetAll();
+            return Ok(result);
+        }
 
     }
 }

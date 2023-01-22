@@ -28,6 +28,12 @@ namespace Demo.Api.Controllers
             var result=_likedFavoriteListService.GetAll(c=>c.FavoriteListId==favoriteListId);
             return Ok(result.Count);
         }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            bool result = _likedFavoriteListService.Delete(new() { Id=id });
+            return Ok(result);  
+        }
 
     }
 }

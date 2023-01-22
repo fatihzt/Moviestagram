@@ -34,5 +34,11 @@ namespace Demo.Api.Controllers
             var result=_commentedFavoriteListService.GetAll();
             return Ok(result);
         }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            bool result = _commentedFavoriteListService.Delete(new() { Id=id});
+            return Ok(result);
+        }
     }
 }

@@ -13,5 +13,17 @@ namespace Demo.Api.Controllers
         {
             _tvSeriesFavoriteListService = tvSeriesFavoriteListService;
         }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            bool result = _tvSeriesFavoriteListService.Delete(new() { Id= id });
+            return Ok(result);
+        }
+        [HttpGet("GetAllTvList")]
+        public IActionResult GetAll()
+        {
+            var result=_tvSeriesFavoriteListService.GetAll();
+            return Ok(result);
+        }
     }
 }
