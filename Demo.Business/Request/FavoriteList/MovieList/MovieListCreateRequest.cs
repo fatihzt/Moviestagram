@@ -12,5 +12,6 @@ namespace Demo.Business.Request.FavoriteList.MovieList
         public int UserId { get; set; }
         public DateTime? DateTime { get; set; }
         public int MovieIds { get; set; }
+        //public List<int> Movieidleri { get; set; }
     }
 }

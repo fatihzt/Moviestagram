@@ -14,7 +14,7 @@ namespace Demo.Core
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=tcp:fatihozata.database.windows.net,1433;Initial Catalog=Moviestagram;Persist Security Info=False;User ID=ozata;Password=fatih.0703;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer(@"Server=tcp:fatihozata.database.windows.net,1433;Initial Catalog=Moviestagram;Persist Security Info=False;User ID=password;Password=password;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
         }
         public DbSet<User> User { get; set; }

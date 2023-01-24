@@ -14,6 +14,7 @@ namespace Demo.Entity
     public class MovieFavoriteList:FavoriteListBase<int>
     {
         public int MovieIds { get; set; }
+        //public List<int> Movieidleri { get; set; }
 
     }
 
