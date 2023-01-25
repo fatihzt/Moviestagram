@@ -14,5 +14,8 @@ namespace Demo.Entity
         public int UserId { get; set; }
         [ForeignKey("FavoriteListId")]
         public int FavoriteListId { get; set; }
+        public int? MovieId { get; set; }
+        public int? TvSeriesId { get; set; }
+
     }
 }

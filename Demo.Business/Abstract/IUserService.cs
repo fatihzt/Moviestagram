@@ -12,5 +12,6 @@ namespace Demo.Business.Abstract
     public interface IUserService:IUser
     {
         string Register(UserRegistirationRequest user);
+        string Login(UserLoginRequest user);
     }
 }

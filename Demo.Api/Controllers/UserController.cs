@@ -1,6 +1,7 @@
 ﻿using Demo.Business.Abstract;
 using Demo.Business.Request.Jwt;
 using Demo.Business.Request.User;
+using Demo.Core.Abstract;
 using Demo.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,34 @@ namespace Demo.Api.Controllers
                     User entity = new() { Name = dto.Name, Surname = dto.Surname, Password = encryptedPassword, EMail = dto.EMail, TelNo = dto.TelNo };
                     _userService.Add(entity);
                     return Ok(entity);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [HttpPost("Login")]
+        public IActionResult Login(UserLoginRequest dto)
+        {
+            var result = _userService.Get(u => u.EMail == dto.EMail);
+            if (dto != null && dto.EMail != null && dto.Password != null)
+            {
+                if (dto != null)
+                {
+                    var password = _userService.Login(dto);
+                    if (result.Password == password)
+                    {
+                        return Ok("Successfully Login!");
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
                 }
                 else
                 {
@@ -87,64 +116,6 @@ namespace Demo.Api.Controllers
         //    {
         //        return BadRequest();
         //    }
-        //}
-        //[HttpPost("Login")]
-        //public IActionResult Login(UserLoginRequest dto)
-        //{
-        //    //Kullanıcının Şifresi Database de şifrelenmiş şekilde tutuluyor onu n8asıl eşleştircem bilmiyorum.
-        //    var result = _userService.GetAll();
-        //    foreach (var user in result)
-        //    {
-        //        var jwtEncodedString = user.Password;
-        //        var token = new JwtSecurityToken(jwtEncodedString: jwtEncodedString);
-        //        var decrpted = token.Claims.First(c => c.Type == "Password").Value;
-
-        //        if (user.EMail == dto.EMail && decrpted == dto.Password)
-        //        {
-        //            return Ok("Login Successfully");
-        //        }
-        //        else if (user.EMail != dto.EMail)
-        //        {
-        //            return BadRequest("User not found");
-        //        }
-        //        else
-        //        {
-        //            return BadRequest("Password Wrong");
-        //        }
-
-        //    }
-        //    return Ok();
-        //}
-        //[HttpPost("Login")]
-        //public IActionResult Login(UserLoginRequest dto)
-        //{
-        //    //Kullanıcının Şifresi Database de şifrelenmiş şekilde tutuluyor onu n8asıl eşleştircem bilmiyorum.
-        //    var result = _userService.GetAll();
-        //    foreach (var user in result)
-        //    {
-        //        var jwtEncodedString = user.Password;
-        //        var token = new JwtSecurityToken(jwtEncodedString: jwtEncodedString);
-        //        var passwords = token.Claims.Where(c => c.Type == "Password").ToList();
-        //        foreach (var claim in passwords)
-        //        {
-        //            if (user.EMail == dto.EMail && claim.Value == dto.Password)
-        //            {
-        //                return Ok("Login Successfully");
-        //            }
-        //            else if (user.EMail != dto.EMail)
-        //            {
-        //                return BadRequest("User not found");
-        //            }
-        //            else
-        //            {
-        //                return BadRequest("Password Wrong");
-        //            }
-
-        //        }
-
-
-        //    }
-        //    return Ok();
         //}
         [HttpGet]
         public IActionResult GetAll()

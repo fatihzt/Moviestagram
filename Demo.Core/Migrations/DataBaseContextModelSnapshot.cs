@@ -37,12 +37,56 @@ namespace Demo.Core.Migrations
                     b.Property<int>("FavoriteListId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TvSeriesId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("CommentedFavoriteList");
+                });
+
+            modelBuilder.Entity("Demo.Entity.ItemOfMovieList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FavoriteListId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemOfMovieList");
+                });
+
+            modelBuilder.Entity("Demo.Entity.ItemOfTvList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FavoriteListId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TvId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemOfTvList");
                 });
 
             modelBuilder.Entity("Demo.Entity.LikedFavoriteList", b =>
@@ -54,6 +98,12 @@ namespace Demo.Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("FavoriteListId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TvSeriesId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")

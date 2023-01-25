@@ -49,26 +49,42 @@ namespace Demo.Business.Concrete
             return _user.GetAll(filter);
         }
 
+        public string Login(UserLoginRequest user)
+        {
+            var jwt = _configuration.GetSection("Jwt").Get<Jwt>();
+            var claims = new[]
+                    {
+                            new Claim(JwtRegisteredClaimNames.Sub,jwt.Subject),
+                            new Claim("EMail",user.EMail),
+                            new Claim("Password",user.Password)
+                        };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.key));
+            //var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                jwt.Issuer,
+                jwt.Audience,
+                claims
+                /*signingCredentials: signIn*/);
+            var encrypted = new JwtSecurityTokenHandler().WriteToken(token);
+            return encrypted;
+        }
+
         public string Register(UserRegistirationRequest user)
         {
             var jwt = _configuration.GetSection("Jwt").Get<Jwt>();
             var claims = new[]
                     {
                             new Claim(JwtRegisteredClaimNames.Sub,jwt.Subject),
-                            new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-                            new Claim(JwtRegisteredClaimNames.Iat,DateTime.UtcNow.ToString()),
-                            new Claim("Name",user.Name),
-                            new Claim("Surname",user.Surname),
+                            new Claim("EMail",user.EMail),
                             new Claim("Password",user.Password)
                         };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.key));
-            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            //var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 jwt.Issuer,
                 jwt.Audience,
-                claims,
-                expires: DateTime.Now.AddMinutes(20),
-                signingCredentials: signIn);
+                claims
+                /*signingCredentials: signIn*/);
             var encrypted = new JwtSecurityTokenHandler().WriteToken(token);
             return encrypted;
         }
