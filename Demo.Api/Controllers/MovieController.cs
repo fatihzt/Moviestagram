@@ -64,5 +64,13 @@ namespace Demo.Api.Controllers
             var result=await client.GetMovieAsync(movieId);
             return Ok(result);  
         }
+        [HttpGet("MovieTrailer{id}")]
+        public async Task<IActionResult> getTrailer(int id)
+        {
+            var result = await client.GetMovieVideosAsync(id);
+            
+            return Ok(result.Results.FirstOrDefault(v => v.Type == "Trailer"));
+           
+        }
     }
 }

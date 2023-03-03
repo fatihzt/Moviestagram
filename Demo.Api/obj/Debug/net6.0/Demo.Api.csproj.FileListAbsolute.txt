@@ -166,3 +166,7 @@ C:\Users\muham\Source\Repos\Version1\Demo.Api\obj\Debug\net6.0\refint\Demo.Api.d
 C:\Users\muham\Source\Repos\Version1\Demo.Api\obj\Debug\net6.0\Demo.Api.pdb
 C:\Users\muham\Source\Repos\Version1\Demo.Api\obj\Debug\net6.0\Demo.Api.genruntimeconfig.cache
 C:\Users\muham\Source\Repos\Version1\Demo.Api\obj\Debug\net6.0\ref\Demo.Api.dll
+C:\Users\muham\source\Repos\Version1\Demo.Api\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\muham\source\Repos\Version1\Demo.Api\bin\Debug\net6.0\MailKit.dll
+C:\Users\muham\source\Repos\Version1\Demo.Api\bin\Debug\net6.0\MimeKit.dll
+C:\Users\muham\source\Repos\Version1\Demo.Api\bin\Debug\net6.0\BouncyCastle.Crypto.dll

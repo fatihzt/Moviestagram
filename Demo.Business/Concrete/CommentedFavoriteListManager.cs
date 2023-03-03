@@ -1,6 +1,7 @@
 ﻿using Demo.Business.Abstract;
 using Demo.Core.Abstract;
 using Demo.Entity;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,19 +29,19 @@ namespace Demo.Business.Concrete
             return _commentedFavoriteList.Delete(entity);
         }
 
-        public CommentedFavoriteList Get(Expression<Func<CommentedFavoriteList, bool>> filter = null)
-        {
-            return _commentedFavoriteList.Get(filter);
-        }
-
-        public List<CommentedFavoriteList> GetAll(Expression<Func<CommentedFavoriteList, bool>> filter = null)
-        {
-            return _commentedFavoriteList.GetAll(filter);
-        }
-
         public bool Update(CommentedFavoriteList entity)
         {
             return _commentedFavoriteList.Update(entity);
+        }
+
+        public CommentedFavoriteList Get(Expression<Func<CommentedFavoriteList, bool>> filter = null, Func<IQueryable<CommentedFavoriteList>, IIncludableQueryable<CommentedFavoriteList, object>> includesPath = null)
+        {
+            return _commentedFavoriteList.Get(filter, includesPath);
+        }
+
+        public List<CommentedFavoriteList> GetAll(Expression<Func<CommentedFavoriteList, bool>> filter = null, Func<IQueryable<CommentedFavoriteList>, IIncludableQueryable<CommentedFavoriteList, object>> includesPath = null)
+        {
+            return _commentedFavoriteList.GetAll(filter, includesPath);
         }
     }
 }

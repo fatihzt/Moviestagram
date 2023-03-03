@@ -84,3 +84,4 @@ C:\Users\muham\source\Repos\Version1\bin\Debug\Demo.Core.pdb
 C:\Users\muham\source\Repos\Version1\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 C:\Users\muham\source\Repos\Version1\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\Users\muham\source\Repos\Version1\obj\Debug\docker-compose.dcproj.CopyComplete
+C:\Users\muham\source\Repos\Version1\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll

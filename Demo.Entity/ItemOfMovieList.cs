@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Demo.Entity
 {
-    public class ItemOfMovieList:ItemOfList
+    public class ItemOfMovieList:ItemOfListBase<int>
     {
+        
         public int MovieId { get; set; }
     }
 }

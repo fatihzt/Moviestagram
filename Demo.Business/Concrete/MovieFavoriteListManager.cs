@@ -29,15 +29,14 @@ namespace Demo.Business.Concrete
            return _movieFavoriteList.Delete(entity);
         }
 
-        public MovieFavoriteList Get(Expression<Func<MovieFavoriteList, bool>> filter = null)
+        
+
+        public MovieFavoriteList Get(Expression<Func<MovieFavoriteList, bool>> filter = null, Func<IQueryable<MovieFavoriteList>, IIncludableQueryable<MovieFavoriteList, object>> includesPath = null)
         {
-            return _movieFavoriteList.Get(filter);
+            return _movieFavoriteList.Get(filter, includesPath);
         }
 
-        public List<MovieFavoriteList> GetAll(Expression<Func<MovieFavoriteList, bool>> filter = null)
-        {
-           return _movieFavoriteList.GetAll(filter);
-        }
+        
 
         public List<MovieFavoriteList> GetAll(Expression<Func<MovieFavoriteList, bool>> filter = null, Func<IQueryable<MovieFavoriteList>, IIncludableQueryable<MovieFavoriteList, object>> includesPath = null)
         {

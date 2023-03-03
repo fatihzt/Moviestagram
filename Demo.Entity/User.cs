@@ -10,13 +10,13 @@ namespace Demo.Entity
 {
     public class User
     {
-        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string Password { get; set; }
+        public byte[] passwordHash { get; set; }
+        public byte[] passwordSalt { get; set; }
         public string EMail { get; set; }
-        public string TelNo { get; set; }
 
 
     }

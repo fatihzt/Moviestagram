@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Demo.Core.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20230119222550_UpdatedTable")]
-    partial class UpdatedTable
+    [Migration("20230303153328_4thTry")]
+    partial class _4thTry
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,12 +39,56 @@ namespace Demo.Core.Migrations
                     b.Property<int>("FavoriteListId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TvSeriesId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("CommentedFavoriteList");
+                });
+
+            modelBuilder.Entity("Demo.Entity.ItemOfMovieList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FavoriteListId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemOfMovieList");
+                });
+
+            modelBuilder.Entity("Demo.Entity.ItemOfTvList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FavoriteListId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TvId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemOfTvList");
                 });
 
             modelBuilder.Entity("Demo.Entity.LikedFavoriteList", b =>
@@ -56,6 +100,12 @@ namespace Demo.Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("FavoriteListId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TvSeriesId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
@@ -76,9 +126,6 @@ namespace Demo.Core.Migrations
 
                     b.Property<DateTime?>("DateTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("MovieIds")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -109,9 +156,6 @@ namespace Demo.Core.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TvIds")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -138,17 +182,17 @@ namespace Demo.Core.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TelNo")
+                    b.Property<byte[]>("passwordHash")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("passwordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("Id");
 

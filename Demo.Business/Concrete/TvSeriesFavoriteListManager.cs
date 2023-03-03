@@ -1,6 +1,7 @@
 ﻿using Demo.Business.Abstract;
 using Demo.Core.Abstract;
 using Demo.Entity;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,14 +29,18 @@ namespace Demo.Business.Concrete
             return _tvSeriesFavoriteList.Delete(entity);
         }
 
-        public TvSeriesFavoriteList Get(Expression<Func<TvSeriesFavoriteList, bool>> filter = null)
+       
+
+        public TvSeriesFavoriteList Get(Expression<Func<TvSeriesFavoriteList, bool>> filter = null, Func<IQueryable<TvSeriesFavoriteList>, IIncludableQueryable<TvSeriesFavoriteList, object>> includesPath = null)
         {
-            return _tvSeriesFavoriteList.Get(filter);
+            return _tvSeriesFavoriteList.Get(filter, includesPath);
         }
 
-        public List<TvSeriesFavoriteList> GetAll(Expression<Func<TvSeriesFavoriteList, bool>> filter = null)
+        
+
+        public List<TvSeriesFavoriteList> GetAll(Expression<Func<TvSeriesFavoriteList, bool>> filter = null, Func<IQueryable<TvSeriesFavoriteList>, IIncludableQueryable<TvSeriesFavoriteList, object>> includesPath = null)
         {
-            return _tvSeriesFavoriteList.GetAll(filter);
+            return _tvSeriesFavoriteList.GetAll(filter, includesPath);
         }
 
         public bool Update(TvSeriesFavoriteList entity)

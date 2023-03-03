@@ -1,3 +1,5 @@
+using Demo.Api.Middleware;
+using Demo.Api.StartUpExtension;
 using Demo.Business.Abstract;
 using Demo.Business.Concrete;
 using Demo.Core;
@@ -21,31 +23,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Moviestagram", Version = "v1" });
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Description = "Jwt Authorization",
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
-    });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference=new OpenApiReference
-            {
-                Type=ReferenceType.SecurityScheme,
-                Id="Bearer"
-            }
-            },
-            new string[] {}
-        }
-    });
-});
+builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -59,16 +37,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:key"]))
     };
 });
-builder.Services.AddScoped<IUserService, UserManager>();
-builder.Services.AddScoped < IUser,EfUser>();
-builder.Services.AddScoped<IMovieFavoriteListService,MovieFavoriteListManager>();
-builder.Services.AddScoped<IMovieFavoriteList,EfMovieFavoriteList>();
-builder.Services.AddScoped<ITvSeriesFavoriteListService,TvSeriesFavoriteListManager>();
-builder.Services.AddScoped<ITvSeriesFavoriteList,EfTvSeriesFavoriteList>();
-builder.Services.AddScoped<ILikedFavoriteListService,LikedFavoriteListManager>();
-builder.Services.AddScoped<ILikedFavoriteList,EfLikedFavoriteList>();
-builder.Services.AddScoped<ICommentedFavoriteListService, CommentedFavoriteListManager>();
-builder.Services.AddScoped<ICommentedFavoriteList,EfCommentedFavoriteList>();
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
+builder.Services.AddSwaggerCustomize();
+builder.Services.AddServices();
 
 
 var app = builder.Build();
@@ -88,6 +60,8 @@ app.UseCors(builder =>
 });
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ExceptionHandlerMiddleware>();
+app.UseMiddleware<RequestResponseMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 

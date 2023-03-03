@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Demo.Entity.Abstract
 {
-    public abstract class ItemOfList
+    public abstract class ItemOfListBase<T> where T : IEquatable<T>
     {
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [ForeignKey("FavoriteListId")]
-        public int FavoriteListId { get; set; }
+        public int FavoriteListId { get; set; } 
     }
 }

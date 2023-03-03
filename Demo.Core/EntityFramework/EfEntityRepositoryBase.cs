@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,22 +34,26 @@ namespace Demo.Core.EntityFramework
             }
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> filter = null)
+        public TEntity Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> includesPath = null)
         {
-            using (TContext dbcontext=new TContext())
+            using (TContext dbcontext = new TContext())
             {
-                var query=dbcontext.Set<TEntity>().AsQueryable();
-                if(filter!=null)query=query.Where(filter);
+                var query = dbcontext.Set<TEntity>().AsQueryable();
+                if(filter != null)query=query.Where(filter);
+                if(includesPath != null)query=includesPath(query);
+
                 return query.FirstOrDefault();
             }
         }
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
+        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> includesPath = null)
         {
-            using (TContext dbcontext=new TContext())
+            using (TContext dbcontext = new TContext())
             {
                 var query = dbcontext.Set<TEntity>().AsQueryable();
-                if(filter!=null)query= query.Where(filter);
+                if (filter != null) query = query.Where(filter);
+                if (includesPath != null) query = includesPath(query);
+
                 return query.ToList();
             }
         }

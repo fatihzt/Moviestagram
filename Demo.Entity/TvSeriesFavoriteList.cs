@@ -12,7 +12,5 @@ namespace Demo.Entity
 {
     public class TvSeriesFavoriteList:FavoriteListBase<int>
     {
-        public int TvIds { get; set; }
-
     }
 }

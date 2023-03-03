@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Demo.Core.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20230125114717_TablesUpdated")]
-    partial class TablesUpdated
+    [Migration("20230131231725_fixing")]
+    partial class fixing
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,44 @@ namespace Demo.Core.Migrations
                     b.ToTable("CommentedFavoriteList");
                 });
 
+            modelBuilder.Entity("Demo.Entity.ItemOfMovieList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FavoriteListId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemOfMovieList");
+                });
+
+            modelBuilder.Entity("Demo.Entity.ItemOfTvList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FavoriteListId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TvId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemOfTvList");
+                });
+
             modelBuilder.Entity("Demo.Entity.LikedFavoriteList", b =>
                 {
                     b.Property<int>("Id")
@@ -89,9 +127,6 @@ namespace Demo.Core.Migrations
                     b.Property<DateTime?>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MovieIds")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -120,9 +155,6 @@ namespace Demo.Core.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TvIds")
-                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

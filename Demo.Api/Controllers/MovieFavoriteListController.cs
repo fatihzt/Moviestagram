@@ -24,7 +24,6 @@ namespace Demo.Api.Controllers
                 Name = dto.Name,
                 UserId = dto.UserId,
                 DateTime = dto.DateTime,
-                MovieIds = dto.MovieIds,
 
             };
             _movieFavoriteListService.Add(entity);
@@ -33,7 +32,7 @@ namespace Demo.Api.Controllers
         [HttpGet("GetListByUserId{userId}")]
         public IActionResult GetListById(int userId)
         {
-            var result=_movieFavoriteListService.GetAll(l=>l.UserId == userId,path=>path.Include(l=>l.User));
+            var result = _movieFavoriteListService.Get(l => l.UserId == userId);
             return Ok(result);
         }
         [HttpDelete("{id}")]

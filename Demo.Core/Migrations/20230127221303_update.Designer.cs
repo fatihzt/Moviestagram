@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Demo.Core.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20230125115707_TablesUpdate")]
-    partial class TablesUpdate
+    [Migration("20230127221303_update")]
+    partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,10 +64,15 @@ namespace Demo.Core.Migrations
                     b.Property<int>("FavoriteListId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("MovieFavoriteListId")
+                        .HasColumnType("int");
+
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MovieFavoriteListId");
 
                     b.ToTable("ItemOfMovieList");
                 });
@@ -86,7 +91,12 @@ namespace Demo.Core.Migrations
                     b.Property<int>("TvId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TvSeriesFavoriteListId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TvSeriesFavoriteListId");
 
                     b.ToTable("ItemOfTvList");
                 });
@@ -127,7 +137,7 @@ namespace Demo.Core.Migrations
                     b.Property<DateTime?>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MovieIds")
+                    b.Property<int>("ItemOfMovieListId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -138,6 +148,8 @@ namespace Demo.Core.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ItemOfMovieListId");
 
                     b.HasIndex("UserId");
 
@@ -155,17 +167,19 @@ namespace Demo.Core.Migrations
                     b.Property<DateTime?>("DateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("ItemOfTvListId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TvIds")
-                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ItemOfTvListId");
 
                     b.HasIndex("UserId");
 
@@ -205,26 +219,66 @@ namespace Demo.Core.Migrations
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("Demo.Entity.ItemOfMovieList", b =>
+                {
+                    b.HasOne("Demo.Entity.MovieFavoriteList", null)
+                        .WithMany("ItemsOfMovieList")
+                        .HasForeignKey("MovieFavoriteListId");
+                });
+
+            modelBuilder.Entity("Demo.Entity.ItemOfTvList", b =>
+                {
+                    b.HasOne("Demo.Entity.TvSeriesFavoriteList", null)
+                        .WithMany("ItemsOfTvList")
+                        .HasForeignKey("TvSeriesFavoriteListId");
+                });
+
             modelBuilder.Entity("Demo.Entity.MovieFavoriteList", b =>
                 {
+                    b.HasOne("Demo.Entity.ItemOfMovieList", "ItemOfMovieList")
+                        .WithMany()
+                        .HasForeignKey("ItemOfMovieListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Demo.Entity.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ItemOfMovieList");
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("Demo.Entity.TvSeriesFavoriteList", b =>
                 {
+                    b.HasOne("Demo.Entity.ItemOfTvList", "ItemOfTvList")
+                        .WithMany()
+                        .HasForeignKey("ItemOfTvListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Demo.Entity.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("ItemOfTvList");
+
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Demo.Entity.MovieFavoriteList", b =>
+                {
+                    b.Navigation("ItemsOfMovieList");
+                });
+
+            modelBuilder.Entity("Demo.Entity.TvSeriesFavoriteList", b =>
+                {
+                    b.Navigation("ItemsOfTvList");
                 });
 #pragma warning restore 612, 618
         }

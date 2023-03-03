@@ -1,5 +1,6 @@
 ﻿using Demo.Business.Request.User;
 using Demo.Core.Abstract;
+using Demo.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,10 @@ namespace Demo.Business.Abstract
 {
     public interface IUserService:IUser
     {
-        string Register(UserRegistirationRequest user);
-        string Login(UserLoginRequest user);
+        
+        bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt);
+        void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt);
+        string CreateToken(User user);
+        
     }
 }
