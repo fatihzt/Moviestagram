@@ -40,8 +40,8 @@ namespace Demo.Api.Controllers
             var result=await client.GetLatestTvShowAsync();
             return Ok(result);
         }
-        [HttpPost("{pageno}")]
-        public async Task<IActionResult> FindTvShow([FromBody] string query, int pageno)
+        [HttpGet("Search/{pageno}")]
+        public async Task<IActionResult> FindTvShow( string query, int pageno)
         {
             var result=await client.SearchTvShowAsync(query, pageno);
             return Ok(result);

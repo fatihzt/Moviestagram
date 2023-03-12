@@ -46,8 +46,8 @@ namespace Demo.Api.Controllers
             var result = await client.GetMovieUpcomingListAsync(null, pageno);
             return Ok(result);
         }
-        [HttpPost("{pageno}")]
-        public async Task<IActionResult> FindMovie([FromBody] string query,int pageno)
+        [HttpGet("Search/{pageno}")]
+        public async Task<IActionResult> FindMovie( string query,int pageno)
         {
             var result=await client.SearchMovieAsync(query,pageno);
             return Ok(result);
