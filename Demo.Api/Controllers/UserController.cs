@@ -76,7 +76,7 @@ namespace Demo.Api.Controllers
             {
                 if (!_userService.VerifyPasswordHash(dto.Password, item.passwordHash, item.passwordSalt)) return BadRequest("wrong info");
                 string token = _userService.CreateToken(item);
-                UserLoginResponse loginResponse = new() {  EMail = item.EMail,Password = token };
+                UserLoginResponse loginResponse = new() {  Id=item.Id,EMail = item.EMail,Password = token,Name=item.Name,Surname=item.Surname };
 
                 return Ok(loginResponse);
             }
