@@ -10,39 +10,45 @@ namespace Demo.Api.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
-        private readonly TMDbClient client =ApiKey.GetTMDbClient();
+        private readonly TMDbClient client;
+        public MovieController()
+        {
+            client = ApiKey.GetTMDbClient();
+            client.DefaultLanguage= "en-US";
+        }
+        
         [HttpGet("genre")]
         public async Task<IActionResult> GetAllCategory()
         {
-            client.DefaultLanguage = "tr-TR";
+            
             var result = await client.GetMovieGenresAsync();
             return Ok(result);
         }
         [HttpGet("{genreid}/{pageno}")]
         public async Task<IActionResult> GetMovie(int genreid,int pageno)
         {
-            client.DefaultLanguage = "tr-TR";
+            
             var result = await client.GetGenreMoviesAsync(genreid,pageno);
             return Ok(result);
         }
         [HttpGet("Movie/GetPopular{pageno}")]
         public async Task<IActionResult> GetPopularMovie(int pageno)
         {
-            client.DefaultLanguage = "tr-TR";
+            
             var rsult=await client.GetMoviePopularListAsync(null,pageno);
             return Ok(rsult);
         }
         [HttpGet("Movie/Latest")]
         public async Task<IActionResult> GetLatestMovie()
         {
-            client.DefaultLanguage = "tr-TR";
+            
             var result = await client.GetMovieLatestAsync();
             return Ok(result);
         }
         [HttpGet("Movie/Upcoming{pageno}")]
         public async Task<IActionResult> GetUpcomingMovies(int pageno)
         {
-            client.DefaultLanguage = "tr-TR";
+            
             var result = await client.GetMovieUpcomingListAsync(null, pageno);
             return Ok(result);
         }

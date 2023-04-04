@@ -13,7 +13,12 @@ namespace Demo.Api.Controllers
     [ApiController]
     public class TVSeriesController : ControllerBase
     {
-        private readonly TMDbClient client=ApiKey.GetTMDbClient();
+        private readonly TMDbClient client;
+        public TVSeriesController()
+        {
+            client = ApiKey.GetTMDbClient();
+            client.DefaultLanguage = "en-US";
+        }
         [HttpGet("genre")]
         public async Task<IActionResult> GetAllCategory()
         {
@@ -24,7 +29,7 @@ namespace Demo.Api.Controllers
         public async Task<IActionResult> GetTVSeries(int genreid,int pageno)
         {
             var result = client.DiscoverTvShowsAsync().WhereGenresInclude(new List<int>() { genreid });
-            SearchContainer<SearchTv> container = await result.Query("tr-TR", pageno);
+            SearchContainer<SearchTv> container = await result.Query("en-US", pageno);
 
             return Ok(container.Results);
         }

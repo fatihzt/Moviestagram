@@ -44,7 +44,7 @@ namespace Demo.Api.Controllers
         [HttpGet("GetAllMovieList")]
         public IActionResult GetAll()
         {
-            var result=_movieFavoriteListService.GetAll();
+            var result=_movieFavoriteListService.GetAll(null,path=>path.Include(q=>q.User));
             return Ok(result);
         }
 

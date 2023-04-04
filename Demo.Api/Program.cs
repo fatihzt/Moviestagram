@@ -41,6 +41,7 @@ builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 builder.Services.AddSwaggerCustomize();
 builder.Services.AddServices();
+builder.Services.AddCors();
 
 
 var app = builder.Build();
@@ -64,6 +65,10 @@ app.UseMiddleware<ExceptionHandlerMiddleware>();
 app.UseMiddleware<RequestResponseMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCors(
+       options => options.WithOrigins("https://finalprojectt-pz6o.vercel.app").AllowAnyMethod()
+   );
 
 app.MapControllers();
 
